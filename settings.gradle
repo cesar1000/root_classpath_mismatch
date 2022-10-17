@@ -1,0 +1,27 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+
+plugins {
+    id 'com.gradle.enterprise' version '3.11.2'
+    // Bring this plugin into the settings classloader to make it available to the root project.
+    id 'org.jetbrains.kotlin.jvm' version '1.7.20' apply false
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+include(':lib')
+
+gradle.rootProject {
+    apply plugin: 'org.jetbrains.kotlin.jvm'
+}
